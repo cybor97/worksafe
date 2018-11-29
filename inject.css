@@ -1,7 +1,7 @@
 .worksafe-hidden {
-    opacity: 0.5;
-    filter: blur(50px);
-    transition: all linear 0.1s;
+    opacity: 0.3;
+    filter: blur(30px);
+    transition: all linear 0.5s;
 }
 
 .worksafe-hidden:hover {
