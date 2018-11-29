@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    height: auto;
+    width: auto;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    margin: 0px;
+    padding: 5px;
+    border-color: #6E7B91;
+}
+
+button {
+    outline: none;
+    border: 1px solid;
+    border-color: #6E7B91;
+    background-color: white;
+    color: #6E7B91;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    transition: all linear 0.1s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #FF1111;
+    border-color: #FF1111;
+    font-weight: bolder;
+    color: white;
+}

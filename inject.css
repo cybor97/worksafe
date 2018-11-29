@@ -1,0 +1,10 @@
+.worksafe-hidden {
+    opacity: 0.5;
+    filter: blur(50px);
+    transition: all linear 0.1s;
+}
+
+.worksafe-hidden:hover {
+    opacity: initial;
+    filter: initial;
+}
