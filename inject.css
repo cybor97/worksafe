@@ -1,10 +1,12 @@
-.worksafe-hidden {
+.worksafe-hidden img,
+.worksafe-hidden video {
     opacity: 0.3;
     filter: blur(30px);
     transition: all linear 0.5s;
 }
 
-.worksafe-hidden:hover {
+.worksafe-hidden img:hover,
+.worksafe-hidden video:hover {
     opacity: initial;
     filter: initial;
 }
