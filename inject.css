@@ -1,4 +1,6 @@
 .worksafe-hidden img,
+.worksafe-hidden .image_cover,
+.worksafe-hidden .article_snippet__image,
 .worksafe-hidden video {
     opacity: 0.3;
     filter: blur(30px);
@@ -6,6 +8,8 @@
 }
 
 .worksafe-hidden img:hover,
+.worksafe-hidden .image_cover:hover,
+.worksafe-hidden .article_snippet__image:hover,
 .worksafe-hidden video:hover {
     opacity: initial;
     filter: initial;

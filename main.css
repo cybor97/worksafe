@@ -23,7 +23,8 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover,
+button.active {
     background-color: #FF1111;
     border-color: #FF1111;
     font-weight: bolder;

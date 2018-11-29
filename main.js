@@ -1,17 +1,36 @@
+let bigRedButton = null;
+
 function init() {
     setTimeout(() => {
-        document.getElementById('bigRedButton').onclick = onBigRedButtonClick;
+        bigRedButton = document.getElementById('bigRedButton');
+        updateBigRedButtonState();
+        bigRedButton.onclick = () => {
+            if (!!localStorage.getItem('hiding'))
+                localStorage.removeItem('hiding');
+            else localStorage.setItem('hiding', true);
+
+            updateBigRedButtonState();
+
+            chrome.tabs.query({}, tabs => tabs.forEach(doWork));
+            chrome.tabs.onCreated = doWork;
+        }
     }, 1);
 }
 
-function onBigRedButtonClick(e) {
-    chrome.tabs.getSelected(null, function (tab) {
-        if (!/^chrome:\/\//.exec(tab.url)) {
-            chrome.tabs.executeScript({
-                code: `(${() => document.body.classList.add('worksafe-hidden')})();`
-            });
-        }
-    });
+function updateBigRedButtonState() {
+    bigRedButton.classList.toggle('active', !!localStorage.getItem('hiding'));
+}
+
+function doWork(tab) {
+    console.log(tab.url);
+    if (!/^chrome:\/\//.exec(tab.url)) {
+        let hiding = !!localStorage.getItem('hiding');
+        chrome.tabs.executeScript(tab.id, {
+            code: `(${hiding => {
+                document.body.classList.toggle('worksafe-hidden', hiding);
+            }})(${hiding});`
+        });
+    }
 }
 
 init();
