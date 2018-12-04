@@ -1,16 +1,10 @@
-.worksafe-hidden img,
-.worksafe-hidden .image_cover,
-.worksafe-hidden .article_snippet__image,
-.worksafe-hidden video {
+body.worksafe-hidden img, body.worksafe-hidden .image_cover, body.worksafe-hidden .article_snippet__image, body.worksafe-hidden video {
     opacity: 0.3;
     filter: blur(30px);
     transition: all linear 0.5s;
 }
 
-.worksafe-hidden img:hover,
-.worksafe-hidden .image_cover:hover,
-.worksafe-hidden .article_snippet__image:hover,
-.worksafe-hidden video:hover {
+body.worksafe-hidden, body.worksafe-hidden img:hover, body.worksafe-hidden .image_cover:hover, body.worksafe-hidden .article_snippet__image:hover, body.worksafe-hidden video:hover {
     opacity: initial;
     filter: initial;
 }
