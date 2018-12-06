@@ -5,7 +5,7 @@ function updateState() {
 function doWork(tab) {
     let tabOrigin = null;
     if (tab && tab.url && (tabOrigin = getOrigin(tab.url))) {
-        if (!/^chrome:\/\//.exec(tab.url)) {
+        if (!/^chrome:\/\//.exec(tab.url) && !/chrome\.google\.com/.exec(tab.url)) {
             let hiding = !!localStorage.getItem(tabOrigin);
             chrome.tabs.executeScript(tab.id, {
                 code: `(${hiding => {
@@ -13,9 +13,6 @@ function doWork(tab) {
                 }})(${hiding});`
             });
         }
-    }
-    else {
-        console.warn('Tab was null or undefined!');
     }
 }
 
