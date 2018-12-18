@@ -18,5 +18,6 @@ function doWork(tab) {
 
 function getOrigin(hRef) {
     //FIXME: should be language-independed
-    return new URL(hRef).origin.toLowerCase().match(/([a-zа-я0-9]*\.[a-zа-я0-9]*)$/)[1];
+    let originMatch = new URL(hRef).origin.toLowerCase().match(/([a-zа-я0-9]*\.[a-zа-я0-9]*)$/);
+    return originMatch ? originMatch[1] : null;
 }
