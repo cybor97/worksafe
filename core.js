@@ -21,3 +21,10 @@ function getOrigin(hRef) {
     let originMatch = new URL(hRef).origin.toLowerCase().match(/([a-zа-я0-9]*\.[a-zа-я0-9]*)$/);
     return originMatch ? originMatch[1] : null;
 }
+
+function getDomains() {
+    let domains = [];
+    for (let i = 0; i < localStorage.length; i++)
+        domains.push(localStorage.key(i));
+    return domains;
+}

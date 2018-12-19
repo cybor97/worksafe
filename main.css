@@ -8,6 +8,7 @@ body {
     margin: 0px;
     padding: 5px;
     border-color: #6E7B91;
+    user-select: none;
 }
 
 button {
@@ -23,10 +24,41 @@ button {
     cursor: pointer;
 }
 
-button:hover,
-button.active {
+button:hover, button.active {
     background-color: #FF1111;
     border-color: #FF1111;
     font-weight: bolder;
     color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 10px 0px 0px 0px;
+}
+
+ul>li {
+    padding: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #6E7B91;
+    font-weight: bolder;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all linear 0.1s;
+}
+
+ul>li:hover {
+    background-color: #f5f5f5;
+}
+
+ul>li>.remove-button {
+    cursor: pointer;
+    font-size: 14pt;
+    transition: all linear 0.1s;
+}
+
+ul>li>.remove-button:hover {
+    color: #FF1111;
 }
