@@ -36,9 +36,18 @@ function updateDomainsList() {
     domainsUL.innerHTML = '';
     getDomains().forEach(c => {
         let domainLI = document.createElement('li');
-        let domainText = document.createElement('a');
+        let domainTextInput = document.createElement('input');
         let domainRemoveButton = document.createElement('a');
-        domainText.textContent = `*.${c}/*`;
+        domainTextInput.value = c;
+        domainTextInput.setAttribute('old-value', c);
+        domainTextInput.addEventListener('change', e => {
+            localStorage.removeItem(e.target.getAttribute('old-value'));
+            localStorage.setItem(e.target.value, true);
+            updateDomainsList();
+            updateState();
+            chrome.tabs.getSelected(null, tab => updateBigRedButton(getOrigin(tab.url)));
+        });
+
         domainRemoveButton.setAttribute('data-domain', c);
         domainRemoveButton.textContent = '-';
         domainRemoveButton.classList.add('remove-button');
@@ -49,7 +58,7 @@ function updateDomainsList() {
             chrome.tabs.getSelected(null, tab => updateBigRedButton(getOrigin(tab.url)));
         });
 
-        domainLI.appendChild(domainText);
+        domainLI.appendChild(domainTextInput);
         domainLI.appendChild(domainRemoveButton);
         domainsUL.appendChild(domainLI);
     });

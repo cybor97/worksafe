@@ -24,7 +24,8 @@ button {
     cursor: pointer;
 }
 
-button:hover, button.active {
+button:hover,
+button.active {
     background-color: #FF1111;
     border-color: #FF1111;
     font-weight: bolder;
@@ -51,6 +52,13 @@ ul>li {
 
 ul>li:hover {
     background-color: #f5f5f5;
+}
+
+ul>li>input {
+    padding: 3px;
+    border: none;
+    background: transparent;
+    outline: none;
 }
 
 ul>li>.remove-button {
