@@ -22,10 +22,40 @@ button {
     width: 200px;
     transition: all linear 0.1s;
     cursor: pointer;
+    margin: 5px 0px 0px 0px;
+}
+
+button#bigRedButton {
+    margin: 0px;
 }
 
 button:hover,
 button.active {
+    background-color: #6E7B91;
+    color: white;
+}
+
+button#importDomainsButton:hover:before,
+button#exportDomainsButton:hover:before {
+    width: 64px;
+    height: 64px;
+    background-position: center;
+    background-size: cover;
+    content: "";
+    padding: 8px 16px 8px 18px;
+    margin-right: 3px;
+}
+
+button#importDomainsButton:hover:before {
+    background-image: url('./icons/import.png');
+}
+
+button#exportDomainsButton:hover:before {
+    background-image: url('./icons/export.png');
+}
+
+button#bigRedButton:hover,
+button#bigRedButton.active {
     background-color: #FF1111;
     border-color: #FF1111;
     font-weight: bolder;
@@ -35,7 +65,7 @@ button.active {
 ul {
     list-style-type: none;
     padding: 0px;
-    margin: 10px 0px 0px 0px;
+    margin: 5px 0px 0px 0px;
 }
 
 ul>li {

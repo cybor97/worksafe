@@ -37,7 +37,6 @@ function init() {
         importDomainsButton.id = 'importDomainsButton';
         importDomainsButton.innerText = 'Import domains list';
         importDomainsButton.onclick = () => fileInput.click();
-        importDomainsButton.style.margin = '5px 0px 5px 0px';
         document.body.appendChild(importDomainsButton);
 
         fileInput.addEventListener('change', e => {
@@ -96,22 +95,22 @@ function updateDomainsList() {
         domainsUL.appendChild(domainLI);
     });
     if (domains.length) {
-        let downloadDomainsButton = document.getElementById('downloadDomainsButton') || document.createElement('button');
-        downloadDomainsButton.id = 'downloadDomainsButton';
-        downloadDomainsButton.innerText = 'Download domains list';
-        downloadDomainsButton.onclick = () => {
+        let exportDomainsButton = document.getElementById('exportDomainsButton') || document.createElement('button');
+        exportDomainsButton.id = 'exportDomainsButton';
+        exportDomainsButton.innerText = 'Export domains list';
+        exportDomainsButton.onclick = () => {
             var element = document.createElement('a');
             element.setAttribute('href', 'data:text/text;charset=utf-8,' + encodeURI(JSON.stringify(domains)));
             element.setAttribute('download', 'domains.json');
             element.click();
             element.remove();
         };
-        document.body.appendChild(downloadDomainsButton);
+        document.body.appendChild(exportDomainsButton);
     }
     else {
-        let downloadDomainsButton = document.getElementById('downloadDomainsButton');
-        if (downloadDomainsButton) {
-            downloadDomainsButton.remove();
+        let exportDomainsButton = document.getElementById('exportDomainsButton');
+        if (exportDomainsButton) {
+            exportDomainsButton.remove();
         }
     }
 }
